@@ -36,8 +36,8 @@ main {
   @include u.breakpoint-up(large) {
     background-image: url("/images/bg-tablet-pattern.svg");
     background-repeat: no-repeat;
-    background-position: left -620px bottom 215px;
-    background-size: 75%;
+    background-position: -80% 65%, 0% 0%;
+    background-size: 55%;
   }
 }
 
