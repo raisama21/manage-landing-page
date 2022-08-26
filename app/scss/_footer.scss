@@ -1,0 +1,143 @@
+@use "./mixins" as u;
+
+.footer {
+  background-color: var(--primaryDarkest);
+}
+
+.footer .container {
+  width: 90%;
+  max-width: 327px;
+  margin-inline: auto;
+  padding-block: 3.125rem;
+
+  @include u.breakpoint-up(large) {
+    max-width: 1112px;
+    padding-block: 3.75rem 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+form[action],
+.footer-nav,
+.social-icons {
+  margin-bottom: 3.75rem;
+
+  @include u.breakpoint-up(large) {
+    margin-bottom: 0;
+  }
+}
+
+form[action] {
+  p {
+    color: hsl(355, 42%, 52%);
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  @include u.breakpoint-up(large) {
+    order: 3;
+  }
+}
+
+.input-style {
+  padding: 1rem 1.375rem;
+  border-radius: 100vmax;
+  margin-right: 1rem;
+}
+
+.submit-btn {
+  border: none;
+  border-radius: 100vmax;
+  padding: 1.25rem 1.375rem 0.875rem 1.5rem;
+  font-weight: 500;
+  background-color: var(--primaryLight);
+  color: var(--neutralLightest);
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.footer-nav {
+  li {
+    color: var(--neutralLightest);
+    transition: ease-in-out 300ms;
+
+    &:not(:last-of-type) {
+      padding-bottom: 1rem;
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: var(--primaryLight);
+    }
+  }
+
+  @include u.breakpoint-up(large) {
+    order: 2;
+    width: 23.75rem;
+  }
+}
+
+ul[aria-label="social-icons"] {
+  display: flex;
+  flex-direction: column;
+
+  @include u.breakpoint-up(medium) {
+    gap: 5.25rem;
+  }
+}
+
+.social-icons {
+  max-width: 20.4375rem;
+  display: flex;
+  justify-content: space-between;
+
+  .icon {
+    width: 2rem;
+    height: 2rem;
+    fill: hsl(0, 0%, 100%);
+    transition: 200ms ease;
+
+    &:hover {
+      fill: var(--primaryLight);
+    }
+  }
+
+  @include u.breakpoint-up(medium) {
+    gap: 1rem;
+    order: 2;
+  }
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+
+  @include u.breakpoint-up(medium) {
+    justify-content: left;
+  }
+
+  .icon {
+    width: 9.25rem;
+    height: 1.5rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.copy-right {
+  padding-bottom: 3.125rem;
+  font-weight: 500;
+  color: var(--neutralLight);
+  text-align: center;
+
+  @include u.breakpoint-up(large) {
+    text-align: right;
+    margin-right: 6.5rem;
+  }
+}

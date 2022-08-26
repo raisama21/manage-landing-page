@@ -1,0 +1,81 @@
+@use "./mixins" as u;
+
+.feature {
+  @include u.breakpoint-up(large) {
+    display: flex;
+    width: 90%;
+    max-width: 69.5rem;
+    margin-inline: auto;
+    margin-bottom: 9rem;
+  }
+
+  &__text {
+    padding-inline: 3rem;
+    margin-bottom: 3rem;
+    text-align: center;
+
+    @include u.breakpoint-up(large) {
+      text-align: left;
+      padding-inline: 0;
+    }
+
+    h2 {
+      margin-bottom: 1.25rem;
+      font-size: var(--fs-300);
+      font-weight: 700;
+      color: var(--neutralDarker);
+    }
+
+    p {
+      font-size: var(--fs-100);
+      font-weight: 400;
+      color: var(--neutralLight);
+    }
+  }
+
+  &__items {
+    margin-left: 1rem;
+    margin-bottom: 4.5rem;
+
+    @include u.breakpoint-up(large) {
+      margin-left: 15rem;
+    }
+
+    h3 {
+      margin-bottom: 1rem;
+      padding-block: 0.75rem;
+      border-top-left-radius: 1.5rem;
+      border-bottom-left-radius: 1.5rem;
+      font-weight: 700;
+      color: var(--neutralDarker);
+      background-color: var(--neutralLighter);
+
+      @include u.breakpoint-up(large) {
+        background-color: hsl(0, 0%, 100%);
+      }
+
+      span {
+        margin-right: 1rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: 100vmax;
+        color: var(--neutralLightest);
+        background-color: var(--primaryLight);
+      }
+    }
+
+    p {
+      padding-inline: 1rem;
+      font-size: var(--fs-100);
+      font-weight: 400;
+      color: var(--neutralLight);
+
+      @include u.breakpoint-up(medium) {
+        padding-inline: 4.75rem 0;
+      }
+
+      &:not(:last-of-type) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}

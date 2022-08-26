@@ -1,0 +1,122 @@
+@use "./mixins" as u;
+
+/* custom properties */
+:root {
+  --primaryLight: hsl(12, 88%, 59%);
+  --primaryDarkest: hsl(233, 12%, 13%);
+
+  --neutralLightest: hsl(0, 0%, 98%);
+  --neutralLighter: hsl(13, 100%, 96%);
+  --neutralLight: hsl(227, 12%, 61%);
+  --neutralDarker: hsl(228, 39%, 23%);
+
+  --ff-pri: "Be Vietnam Pro", sans-serif;
+  --ff-heading: var(--ff-pri);
+  --ff-body: var(--ff-pri);
+
+  --fs-100: 0.875rem;
+  --fs-200: 1rem;
+  --fs-300: 1.5rem;
+  --fs-400: 2rem;
+  --fs-500: 2rem;
+}
+
+@include u.breakpoint-up(large) {
+  :root {
+    --fs-100: 1rem;
+    --fs-300: 2rem;
+    --fs-400: 2.5rem;
+    --fs-500: 3rem;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: var(--ff-pri);
+  min-width: 22.5rem;
+}
+
+/* flex-box styles */
+.flex {
+  display: flex;
+
+  &-jc-c {
+    justify-content: center;
+  }
+
+  &-ai-c {
+    align-items: center;
+  }
+
+  &-jc-sb {
+    justify-content: space-between;
+  }
+}
+
+/* visibility */
+.hide-for-mobile {
+  @include u.breakpoint-down(medium) {
+    display: none;
+  }
+}
+
+.hide-for-desktop {
+  @include u.breakpoint-up(large) {
+    display: none;
+  }
+}
+
+/* button-style */
+.button-style {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 100vmax;
+  font-weight: 500;
+}

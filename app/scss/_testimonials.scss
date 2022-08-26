@@ -1,0 +1,220 @@
+@use "./mixins" as u;
+
+.testimonials {
+  margin-bottom: 2.5rem;
+  position: relative;
+
+  .container {
+    margin-bottom: 2.5rem;
+
+    h3 {
+      margin-bottom: 4.5rem;
+      font-size: var(--fs-300);
+      font-weight: 700;
+      color: var(--neutralDarker);
+    }
+
+    text-align: center;
+  }
+}
+
+.carousel {
+  position: relative;
+  padding-top: 2rem;
+  margin-bottom: 1.5rem;
+  height: 16.25rem;
+
+  @include u.breakpoint-up(medium) {
+    margin-bottom: 0;
+  }
+}
+
+// slider
+.slider {
+  display: flex;
+  margin-inline: 1.5rem;
+
+  @include u.breakpoint-up(medium) {
+    margin-inline: 0;
+    gap: 1.5rem;
+  }
+}
+
+.slider > * {
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.card {
+  width: 100%;
+  max-width: 21.25rem;
+  position: relative;
+  padding: 4.125rem 1.5rem 2.75rem;
+  background-color: var(--neutralLightest);
+
+  @include u.breakpoint-up(large) {
+    max-width: 33.75rem;
+  }
+
+  &__avatar {
+    max-width: 4.5rem;
+    position: absolute;
+    left: 135px;
+    transform: translateY(-135%);
+
+    @include u.breakpoint-up(large) {
+      left: 234px;
+    }
+  }
+
+  &__name {
+    font-size: var(--fs-200);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--neutralDarker);
+  }
+
+  &__review {
+    font-size: var(--fs-100);
+    font-weight: 400;
+    color: var(--neutralLight);
+  }
+}
+
+.a11y-slider-dots {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  list-style: none;
+  margin: 0 0 2em;
+  padding: 0;
+}
+
+.a11y-slider-dots li {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  padding: 0;
+  margin: 0 6px;
+  color: #fff;
+}
+
+.a11y-slider-dots li button {
+  display: block;
+  font-size: 0;
+  text-indent: -9999px;
+  border: 2px solid var(--primaryLight) !important;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-color: transparent;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.active {
+    background-color: var(--primaryLight);
+  }
+}
+
+.testimonials-cta {
+  button {
+    color: hsl(0, 0%, 100%);
+    background-color: var(--primaryLight);
+    opacity: 1;
+    transition: opacity ease-in-out 300ms;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.6;
+    }
+  }
+}
+
+.a11y-slider-autoplay {
+  display: none;
+}
+
+// last-section
+
+.last-section {
+  background-color: var(--primaryLight);
+  background-image: url("/images/bg-tablet-pattern.svg");
+  background-repeat: no-repeat;
+  background-size: 120%;
+  background-position: -340px 55px, 0px 0px;
+
+  position: relative;
+  isolation: isolate;
+
+  @include u.breakpoint-up(medium) {
+    background-image: url("/images/bg-tablet-pattern.svg");
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: -260px -4px, 0px 0px;
+  }
+
+  @include u.breakpoint-up(large) {
+    background-image: url("/images/bg-tablet-pattern.svg");
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: 0px 0px, 0px 0px;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    inset: 0;
+    z-index: -1;
+    opacity: 0.8;
+    background-color: var(--primaryLight);
+  }
+
+  .container {
+    padding-block: 5.625rem;
+
+    @include u.breakpoint-up(large) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 90%;
+      max-width: 1112px;
+      margin-inline: auto;
+      padding-block: 4.375rem;
+      padding-inline: 0;
+    }
+  }
+
+  p {
+    max-width: 12ch;
+    margin-inline: auto;
+    font-weight: 700;
+    font-size: var(--fs-400);
+    color: hsl(0, 0%, 98%);
+    text-align: center;
+    margin-bottom: 1.5rem;
+
+    @include u.breakpoint-up(large) {
+      max-width: 20ch;
+      margin-inline: 0;
+      margin-bottom: 0;
+      text-align: left;
+    }
+  }
+}
+
+.ls-cta {
+  button {
+    color: var(--primaryLight);
+    background-color: var(--neutralLightest);
+    transition: ease-in-out 300ms;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
